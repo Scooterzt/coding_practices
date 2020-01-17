@@ -151,20 +151,75 @@
 // }
 // console.log(repeatedString("xxx", 97));
 
-let a = "abcd";
-let b = "cdabcdab";
+// let a = "abcd";
+// let b = "cdabcdab";
 
-function repeatStr(strA, strB){
-    let tempStr = "";
-    let times = Math.ceil(strB.length/strA.length);
-    tempStr = strA.repeat(times);
-    if(tempStr.includes(strB)){
-        return times;
+// function repeatStr(strA, strB){
+//     let tempStr = "";
+//     let times = Math.ceil(strB.length/strA.length);
+//     tempStr = strA.repeat(times);
+//     if(tempStr.includes(strB)){
+//         return times;
+//     }
+//     tempStr += strA;
+//     if(tempStr.includes(strB)){
+//         return times+=1;
+//     }
+//     return -1;
+// }
+// console.log(repeatStr(a,b));
+
+// function bonAppetit(bill, itemNotEat, totalCharge) {
+//     let expectedCharge = 0;
+//     for(let i=0; i<bill.length; i++){
+//         if(i != itemNotEat){
+//             expectedCharge += bill[i];
+//         }
+//     }
+//     expectedCharge = expectedCharge/2;
+//     if((expectedCharge) == totalCharge){
+//         return "Bon Appetit";
+//     }
+//     else{
+//         return totalCharge-expectedCharge;
+//     }
+// }
+// console.log(bonAppetit([3,10,2,9],1,7));
+// function pageCount(n, p) {
+//     let result = 0;
+//     if(n%2==0 && (n-p) == 1){
+//         return 1;
+//     }
+//     if(p > Math.floor(n/2)){
+//         for(let i=n-1; i>p;i-=2){
+//             result++;
+//         }
+//     }
+//     else{
+//         for(let j=1; j<p; j+=2){
+//             result++;
+//         }
+//     }
+//     return result;
+// }
+// console.log(pageCount(17,5));
+// function pageCount2(n,p){
+//     const pageTurns = Math.floor(p/2);
+//     const totalTurns = Math.floor(n/2);
+//     return Math.min(pageTurns, totalTurns-pageTurns);
+// }
+// console.log(pageCount2(2,1));
+
+function minTimeToVisitAllPoints(points){
+    let count = 0;
+    for(let i=0; i<points.length; i++){
+        count += steps(points[i], points[i+1]);
     }
-    tempStr += strA;
-    if(tempStr.includes(strB)){
-        return times+=1;
-    }
-    return -1;
+    return count;
 }
-console.log(repeatStr(a,b));
+function steps(x,y){
+    let temp = Math.max( Math.abs(x[0] - y[0]), Math.abs(x[1] - y[1]) );
+    console.log("steps: " + temp); 
+    return temp;
+}
+console.log(minTimeToVisitAllPoints([[1,1],[3,4],[-1,0]]));
