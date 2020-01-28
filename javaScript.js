@@ -283,25 +283,39 @@
 // };
 // console.log(moveZeroes2(zeroArr));
 
-function migratoryBirds(arr) {
-    let result = {};
-    for(let i=0; i<arr.length; i++){
-        if(!result[arr[i]]){
-            result[arr[i]] = 1;
-        }
-        else{
-            result[arr[i]]++;
+// function migratoryBirds(arr) {
+//     let result = {};
+//     for(let i=0; i<arr.length; i++){
+//         if(!result[arr[i]]){
+//             result[arr[i]] = 1;
+//         }
+//         else{
+//             result[arr[i]]++;
+//         }
+//     }
+//     let max = 0;
+//     console.log(result);
+//     for(let j in result){
+//         if(result[j] > max){
+//             max = j;
+//         }
+//         console.log(result[j]);
+//     }
+//     return max;
+// }
+// let bird = [1,4,4,4,5,3];
+// console.log(migratoryBirds(bird));
+var maximum69Number  = function(num) {
+    let tempNum = num.toString().split("");
+    console.log(tempNum);
+    for(let i=0; i<tempNum.length; i++){
+        console.log(tempNum[i]);
+        if(tempNum[i] == 6){
+            tempNum[i] = "9";
+            break;
         }
     }
-    let max = 0;
-    console.log(result);
-    for(let j in result){
-        if(result[j] > max){
-            max = j;
-        }
-        console.log(result[j]);
-    }
-    return max;
-}
-let bird = [1,4,4,4,5,3];
-console.log(migratoryBirds(bird));
+    let newNum = parseInt(tempNum.join(''));
+    return newNum;
+};
+console.log(maximum69Number(9669));
