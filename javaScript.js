@@ -166,8 +166,8 @@
 //         return times+=1;
 //     }
 //     return -1;
-// }
-// console.log(repeatStr(a,b));
+//}
+//console.log(repeatStr(a,b));
 
 // function bonAppetit(bill, itemNotEat, totalCharge) {
 //     let expectedCharge = 0;
@@ -210,16 +210,98 @@
 // }
 // console.log(pageCount2(2,1));
 
-function minTimeToVisitAllPoints(points){
-    let count = 0;
-    for(let i=0; i<points.length; i++){
-        count += steps(points[i], points[i+1]);
+// function minTimeToVisitAllPoints(points){
+//     let count = 0;
+//     for(let i=0; i<points.length; i++){
+//         count += steps(points[i], points[i+1]);
+//     }
+//     return count;
+// }
+// function steps(x,y){
+//     let temp = Math.max( Math.abs(x[0] - y[0]), Math.abs(x[1] - y[1]) );
+//     console.log("steps: " + temp); 
+//     return temp;
+// }
+// console.log(minTimeToVisitAllPoints([[1,1],[3,4],[-1,0]]));
+
+// console.log("a".charCodeAt(0));
+
+// var singleNumber = function(nums) {
+//     let result = Array.from(new Set(nums));
+//     return result;
+// };
+// console.log(singleNumber([2,2,1]));
+
+// var singleNumber = function(nums) {
+//     for(let i=0; i<nums.length; i++){
+//         let temp = nums.pop();
+//         if(nums.includes(temp)){
+//             nums.unshift(temp);
+//             continue;
+//         }
+//         return temp;
+//     }
+// };
+
+
+// var singleNumber = function(nums) {
+//     let sortArr = nums.sort();
+//     let setArr = [... new Set(sortArr)];
+//     console.log(setArr);
+//     for(let i=0; i<sortArr.length; i++){
+//         if(sortArr[i] != setArr[i]){
+//             return sortArr[i];
+//         }
+//     }
+// };
+// console.log(singleNumber([4,1,2,1,2]));
+// let zeroArr = [0,1,0,3,12];
+// var moveZeroes = function(nums) {
+//     let tempArr = [];
+//     for(let i=0; i< nums.length; i++){
+//         if(nums[i] != 0){
+//             tempArr.push(nums[i]);
+//         }
+//     }
+//     for(let j=tempArr.length; j<nums.length; j++){
+//         tempArr[j] = 0;
+//     }
+//     return tempArr;
+// };
+// console.log(moveZeroes(zeroArr));
+// var moveZeroes2 = function(nums) {
+//     let nonZeroIndex = 0;
+//     for(let i=0; i<nums.length; i++){
+//         if(nums[i] != 0){
+//             nums[nonZeroIndex++] = nums[i];
+//         }
+//     }
+//     for(let j=nonZeroIndex; j<nums.length; j++){
+//         nums[j] = 0;
+//     }
+//     return nums;
+// };
+// console.log(moveZeroes2(zeroArr));
+
+function migratoryBirds(arr) {
+    let result = {};
+    for(let i=0; i<arr.length; i++){
+        if(!result[arr[i]]){
+            result[arr[i]] = 1;
+        }
+        else{
+            result[arr[i]]++;
+        }
     }
-    return count;
+    let max = 0;
+    console.log(result);
+    for(let j in result){
+        if(result[j] > max){
+            max = j;
+        }
+        console.log(result[j]);
+    }
+    return max;
 }
-function steps(x,y){
-    let temp = Math.max( Math.abs(x[0] - y[0]), Math.abs(x[1] - y[1]) );
-    console.log("steps: " + temp); 
-    return temp;
-}
-console.log(minTimeToVisitAllPoints([[1,1],[3,4],[-1,0]]));
+let bird = [1,4,4,4,5,3];
+console.log(migratoryBirds(bird));
