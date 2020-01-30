@@ -374,3 +374,13 @@ var mergeTwoLists = function(l1, l2) {
     return newList;
 };
 console.log(mergeTwoLists([1,2,4], [1,3,4]));
+
+var findDisappearedNumbers = function(nums) {
+    let result = [];
+    for(let i=0; i<nums.length; i++){
+        if(!nums.includes(i+1)){
+            result.push(i+1);
+        }
+    }
+    return result;
+};
