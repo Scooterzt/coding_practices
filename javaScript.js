@@ -305,17 +305,72 @@
 // }
 // let bird = [1,4,4,4,5,3];
 // console.log(migratoryBirds(bird));
-var maximum69Number  = function(num) {
-    let tempNum = num.toString().split("");
-    console.log(tempNum);
-    for(let i=0; i<tempNum.length; i++){
-        console.log(tempNum[i]);
-        if(tempNum[i] == 6){
-            tempNum[i] = "9";
-            break;
+// var maximum69Number  = function(num) {
+//     let tempNum = num.toString().split("");
+//     console.log(tempNum);
+//     for(let i=0; i<tempNum.length; i++){
+//         console.log(tempNum[i]);
+//         if(tempNum[i] == 6){
+//             tempNum[i] = "9";
+//             break;
+//         }
+//     }
+//     let newNum = parseInt(tempNum.join(''));
+//     return newNum;
+// };
+// console.log(maximum69Number(9669));
+
+// var majorityElement = function(nums) {
+//     let tempObj = {};
+//     for(let i=0; i< nums.length; i++){
+//         if(!tempObj[nums[i]]){
+//             tempObj[nums[i]] = 1;
+//         }
+//         else{
+//             tempObj[nums[i]]++;
+//         }
+//     }
+//     console.log(tempObj);
+//     let majority = Math.max(...Object.values(tempObj));
+//     for(var key in tempObj){
+//         if(tempObj[key] === majority){
+//             return key;
+//         }
+//     }
+//     return false;
+// };
+// console.log(majorityElement([2,2,1,1,1,2,2]));
+// var majorityElement = function(nums) {
+//     let tempObj = {};
+//     let maxAppear = Math.floor(nums.length/3);
+//     let resultArr = [];
+//     for(let i=0; i< nums.length; i++){
+//         if(!tempObj[nums[i]]){
+//             tempObj[nums[i]] = 1;
+//         }
+//         else{
+//             tempObj[nums[i]]++;
+//         }
+//     }
+//     for(var key in tempObj){
+//         if(tempObj[key] > maxAppear){
+//             resultArr.push(key);
+//         }
+//     }
+//     return resultArr;
+// };
+var mergeTwoLists = function(l1, l2) {
+    let newList = [];
+    for(let i=0; i<l1.length; i++){
+        if(l1[i] > l2[i]){
+            newList.push(l2[i]);
+            newList.push(l1[i]);
+        }
+        else{
+            newList.push(l1[i]);
+            newList.push(l2[i]);
         }
     }
-    let newNum = parseInt(tempNum.join(''));
-    return newNum;
+    return newList;
 };
-console.log(maximum69Number(9669));
+console.log(mergeTwoLists([1,2,4], [1,3,4]));
