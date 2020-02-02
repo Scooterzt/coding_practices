@@ -359,28 +359,51 @@
 //     }
 //     return resultArr;
 // };
-var mergeTwoLists = function(l1, l2) {
-    let newList = [];
-    for(let i=0; i<l1.length; i++){
-        if(l1[i] > l2[i]){
-            newList.push(l2[i]);
-            newList.push(l1[i]);
-        }
-        else{
-            newList.push(l1[i]);
-            newList.push(l2[i]);
-        }
-    }
-    return newList;
-};
-console.log(mergeTwoLists([1,2,4], [1,3,4]));
+// var mergeTwoLists = function(l1, l2) {
+//     let newList = [];
+//     for(let i=0; i<l1.length; i++){
+//         if(l1[i] > l2[i]){
+//             newList.push(l2[i]);
+//             newList.push(l1[i]);
+//         }
+//         else{
+//             newList.push(l1[i]);
+//             newList.push(l2[i]);
+//         }
+//     }
+//     return newList;
+// };
+// console.log(mergeTwoLists([1,2,4], [1,3,4]));
 
-var findDisappearedNumbers = function(nums) {
-    let result = [];
-    for(let i=0; i<nums.length; i++){
-        if(!nums.includes(i+1)){
-            result.push(i+1);
-        }
-    }
-    return result;
-};
+// var findDisappearedNumbers = function(nums) {
+//     let result = [];
+//     for(let i=0; i<nums.length; i++){
+//         if(!nums.includes(i+1)){
+//             result.push(i+1);
+//         }
+//     }
+//     return result;
+// };
+// var sortPeople = function(a, b) {
+//     //Sort people by height as the first priority decreasingly, and by order as the second priority non-decreasingly
+//          if(a[0] != b[0]) {
+//             return b[0] - a[0];
+//          } else {
+//             return a[1] - b[1];
+//          }
+// };
+let arr = [[7,0], [4,4], [7,1], [5,0], [6,1], [5,2]];
+// var reconstructQueue = function(people) {
+//     people.sort(sortPeople);
+//     console.log(people[5][1]);
+//     var i;
+//     var res = [];
+//  //Reconstruct queue by inserting people by its k value
+//     for(i = 0; i < people.length; i++) {
+//         res.splice(people[i][1], 0, people[i]);
+//         console.log("res: " + JSON.stringify(res));
+//     }
+//     return res;
+//  };
+//  console.log(reconstructQueue(arr));
+console.log(arr.sort((a, b) => a[1] - b[1]));
