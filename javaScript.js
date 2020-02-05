@@ -422,16 +422,45 @@
 // };
 // console.log(maxProfit([2,4,1]));
 
-var maxProfit2 = function(prices) {
-    let minprice = prices[0];
-    let maxprofit = 0;
-    for(let i=0; i<prices.length; i++){
-        if(prices[i] < minprice){
-            minprice = prices[i];
-        }
-        else if( (prices[i] - minprice) > maxprofit ){
-            maxprofit = prices[i] - minprice;
-        }
+// var maxProfit2 = function(prices) {
+//     let minprice = prices[0];
+//     let maxprofit = 0;
+//     for(let i=0; i<prices.length; i++){
+//         if(prices[i] < minprice){
+//             minprice = prices[i];
+//         }
+//         else if( (prices[i] - minprice) > maxprofit ){
+//             maxprofit = prices[i] - minprice;
+//         }
+//     }
+//     return maxprofit;
+// };
+let arr1 = [1,2,3,4];
+function multiplyArr1 (arr){
+    let tempNum = 1;
+    let result = [];
+    for(let i=0; i<arr.length; i++){
+        tempNum *= arr[i];
     }
-    return maxprofit;
-};
+    for(let j=0; j<arr.length; j++){
+        result.push(tempNum/arr[j]);
+    }
+    return result;
+}
+console.log("2n solution:  " + multiplyArr1(arr1));
+
+function multiplyArr2 (arr){
+    let result = [];
+    let tempMultiSum = 1;
+    for(let i=0; i<arr.length; i++){
+        for(let j=0; j<arr.length; j++){
+            if(i != j){
+                tempMultiSum *= arr[j];
+            }
+        }
+        result.push(tempMultiSum);
+        tempMultiSum = 1;
+    }
+    return result;
+}
+console.log("nSquared solution: " + multiplyArr2(arr1));
