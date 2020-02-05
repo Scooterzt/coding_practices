@@ -65,3 +65,17 @@ function string_to_object(str){
         }
         return counter;
     };
+//find duplictate without creating another datasctructure
+    var findDuplicates = function(nums) {
+        let result = [];
+        for(var value of nums){
+            let lookUpIndex = Math.abs(value)-1;  
+            if(nums[lookUpIndex] < 0){
+                result.push(Math.abs(value));
+            }
+            else {
+                nums[lookUpIndex] *= -1;
+            }
+        }
+        return result; 
+    };

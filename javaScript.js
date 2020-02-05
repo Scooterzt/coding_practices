@@ -392,7 +392,7 @@
 //             return a[1] - b[1];
 //          }
 // };
-let arr = [[7,0], [4,4], [7,1], [5,0], [6,1], [5,2]];
+// let arr = [[7,0], [4,4], [7,1], [5,0], [6,1], [5,2]];
 // var reconstructQueue = function(people) {
 //     people.sort(sortPeople);
 //     console.log(people[5][1]);
@@ -406,4 +406,32 @@ let arr = [[7,0], [4,4], [7,1], [5,0], [6,1], [5,2]];
 //     return res;
 //  };
 //  console.log(reconstructQueue(arr));
-console.log(arr.sort((a, b) => a[1] - b[1]));
+// console.log(arr.sort((a, b) => a[1] - b[1]));
+
+// var maxProfit = function(prices) {
+//     let maxprofit = 0;
+//     for(let i=0; i<prices.length-1; i++){
+//         for(let j=i+1; j<prices.length; j++){
+//             let profit = prices[j] - prices[i];
+//             if(profit > maxprofit){
+//                 maxprofit = profit;
+//             }
+//         }
+//     }
+//     return maxprofit;
+// };
+// console.log(maxProfit([2,4,1]));
+
+var maxProfit2 = function(prices) {
+    let minprice = prices[0];
+    let maxprofit = 0;
+    for(let i=0; i<prices.length; i++){
+        if(prices[i] < minprice){
+            minprice = prices[i];
+        }
+        else if( (prices[i] - minprice) > maxprofit ){
+            maxprofit = prices[i] - minprice;
+        }
+    }
+    return maxprofit;
+};
