@@ -435,32 +435,106 @@
 //     }
 //     return maxprofit;
 // };
-let arr1 = [1,2,3,4];
-function multiplyArr1 (arr){
-    let tempNum = 1;
-    let result = [];
-    for(let i=0; i<arr.length; i++){
-        tempNum *= arr[i];
-    }
-    for(let j=0; j<arr.length; j++){
-        result.push(tempNum/arr[j]);
-    }
-    return result;
-}
-console.log("2n solution:  " + multiplyArr1(arr1));
+// let arr1 = [1,2,3,4];
+// function multiplyArr1 (arr){
+//     let tempNum = 1;
+//     let result = [];
+//     for(let i=0; i<arr.length; i++){
+//         tempNum *= arr[i];
+//     }
+//     for(let j=0; j<arr.length; j++){
+//         result.push(tempNum/arr[j]);
+//     }
+//     return result;
+// }
+// console.log("2n solution:  " + multiplyArr1(arr1));
 
-function multiplyArr2 (arr){
-    let result = [];
-    let tempMultiSum = 1;
-    for(let i=0; i<arr.length; i++){
-        for(let j=0; j<arr.length; j++){
-            if(i != j){
-                tempMultiSum *= arr[j];
-            }
-        }
-        result.push(tempMultiSum);
-        tempMultiSum = 1;
-    }
-    return result;
-}
-console.log("nSquared solution: " + multiplyArr2(arr1));
+// function multiplyArr2 (arr){
+//     let result = [];
+//     let tempMultiSum = 1;
+//     for(let i=0; i<arr.length; i++){
+//         for(let j=0; j<arr.length; j++){
+//             if(i != j){
+//                 tempMultiSum *= arr[j];
+//             }
+//         }
+//         result.push(tempMultiSum);
+//         tempMultiSum = 1;
+//     }
+//     return result;
+// }
+// console.log("nSquared solution: " + multiplyArr2(arr1));
+
+// var replaceElements = function(arr) {
+//     let result = [];
+//     for(let i=0; i<arr.length-1; i++){
+//         console.log(arr.slice(i+1));
+//         result.push(Math.max(...arr.slice(i+1)));
+//     }
+//     result.push(-1);
+//     return result;
+// };
+// console.log(replaceElements([17,18,5,4,6,1]));
+
+// var maxProduct = function(nums) {
+//     let max = 0;
+//     if(nums.length === 1){
+//         return nums[0];
+//     }
+//     for(let i=0; i<nums.length; i++){
+//         for(let j=i+1; j<nums.length;j++){
+//             if((nums[i]*nums[j]) > max){
+//                 max = nums[i]*nums[j];
+//                 console.log("max: " + max);
+//             }
+//         }
+//     }
+//     return max;
+// };
+// var maxProduct = function(nums) {
+//     let max = 0;
+//     let tempSum = 1;
+//     if(nums.length === 1){
+//         return nums[0];
+//     }
+//     for(let i=0; i<nums.length; i++){
+//         tempSum = nums[i] * nums[i+1];
+//         console.log("temp: " + tempSum);
+//         if(tempSum > max){
+//             max = tempSum;
+//         }
+//         if(isNaN(tempSum)){
+//             return nums[i];
+//         }
+//     }
+//     return max;
+// };
+// console.log(maxProduct([0,2]));
+// var climbStairs = function(n) {
+//     let arr=[1,2,3];
+//     for(let i = 3;i<n;i++){
+//         arr[i]=arr[i-1] + arr[i-2];
+//     }
+//     return arr[n-1];
+// };
+// console.log(climbStairs(8));
+// function birthday(sArr, day, month) {
+//     let result = 0;
+//     for(let i=0; i<sArr.length; i++){
+//         if( (sArr.slice(i,i+month).reduce((a,b) => a+b, 0)) === day){
+//             result++;
+//         }
+//     }
+//     return result;
+// }
+// function divisibleSumPairs(n, k, ar) {
+//     let result = 0;
+//     for(let i=0; i<ar.length-1; i++){
+//         for(let j=i+1; j<ar.length; j++){
+//             if( (ar[i]+ar[j]) % k === 0){
+//                 result++;
+//             }
+//         }
+//     }
+//     return result;
+// }
