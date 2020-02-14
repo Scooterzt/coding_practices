@@ -538,3 +538,63 @@
 //     }
 //     return result;
 // }
+// function migratoryBirds(arr) {
+//     let result = {};
+//     for(let i=0; i<arr.length; i++){
+//         if(!result[arr[i]]){
+//             result[arr[i]] = 1;
+//         }
+//         else{
+//             result[arr[i]]++;
+//         }
+//     }
+//     let max = 0;
+//     for(let j in result){
+//         if(result[j] > max){
+//             max = j;
+//         }
+//     }
+//     return max;
+// }
+// function migratoryBirds(arr) {
+//     let typeArr = [0,0,0,0,0];
+//     for(let i=0; i<arr.length;i++){
+//         if(arr[i] === 1){
+//             typeArr[0]++;
+//         }
+//         else if(arr[i] === 2){
+//             typeArr[1]++;
+//         }
+//         else if(arr[i] === 3){
+//             typeArr[2]++;
+//         }
+//         else if(arr[i] === 4){
+//             typeArr[3]++;
+//         }
+//         else{
+//             typeArr[4]++;
+//         }
+//     }
+//     console.log("Type1: " + typeArr);
+
+//     return typeArr.indexOf(Math.max(...typeArr))+1;
+// }
+// console.log(migratoryBirds([1,4,4,4,5,3]));
+
+var numberOfSteps  = function(num) {
+    let result = 0;
+    while(num > 0){
+        if(num%2 === 0){
+            num = num/2;
+            result++;
+            console.log("num/2: " + num);
+        }
+        else{
+            num--;
+            result++;
+            console.log("num--: " + num);
+        }
+    }
+    return result;
+};
+console.log(numberOfSteps(14));
