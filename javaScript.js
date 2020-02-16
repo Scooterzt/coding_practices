@@ -581,20 +581,44 @@
 // }
 // console.log(migratoryBirds([1,4,4,4,5,3]));
 
-var numberOfSteps  = function(num) {
-    let result = 0;
-    while(num > 0){
-        if(num%2 === 0){
-            num = num/2;
-            result++;
-            console.log("num/2: " + num);
+// var numberOfSteps  = function(num) {
+//     let result = 0;
+//     while(num > 0){
+//         if(num%2 === 0){
+//             num = num/2;
+//             result++;
+//             console.log("num/2: " + num);
+//         }
+//         else{
+//             num--;
+//             result++;
+//             console.log("num--: " + num);
+//         }
+//     }
+//     return result;
+// };
+// console.log(numberOfSteps(14));
+var findAllConcatenatedWordsInADict = function(words) {
+    const set = new Set(words);
+    
+    // with curWord, we have split `num` words before it
+    function helper(word, num = 0) {
+      if ("" === word) return num > 1;
+      
+      let tmp = "";
+      for (let i = 0; i < word.length; i++) {
+        // build tmp word by appending characters
+        tmp += word[i];
+        if (set.has(tmp)) {
+          const sub = word.substr(i+1);
+          if (helper(sub, num + 1)) {
+            return true;
+          }
         }
-        else{
-            num--;
-            result++;
-            console.log("num--: " + num);
-        }
+      }
+        
+      return false;
     }
-    return result;
-};
-console.log(numberOfSteps(14));
+    
+    return words.filter(w => helper(w));
+  };
