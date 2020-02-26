@@ -598,27 +598,27 @@
 //     return result;
 // };
 // console.log(numberOfSteps(14));
-var findAllConcatenatedWordsInADict = function(words) {
-    const set = new Set(words);
+// var findAllConcatenatedWordsInADict = function(words) {
+//     const set = new Set(words);
     
-    // with curWord, we have split `num` words before it
-    function helper(word, num = 0) {
-      if ("" === word) return num > 1;
+//     // with curWord, we have split `num` words before it
+//     function helper(word, num = 0) {
+//       if ("" === word) return num > 1;
       
-      let tmp = "";
-      for (let i = 0; i < word.length; i++) {
-        // build tmp word by appending characters
-        tmp += word[i];
-        if (set.has(tmp)) {
-          const sub = word.substr(i+1);
-          if (helper(sub, num + 1)) {
-            return true;
-          }
-        }
-      }
+//       let tmp = "";
+//       for (let i = 0; i < word.length; i++) {
+//         // build tmp word by appending characters
+//         tmp += word[i];
+//         if (set.has(tmp)) {
+//           const sub = word.substr(i+1);
+//           if (helper(sub, num + 1)) {
+//             return true;
+//           }
+//         }
+//       }
         
-      return false;
-    }
+//       return false;
+//     }
     
-    return words.filter(w => helper(w));
-  };
+//     return words.filter(w => helper(w));
+//   };
