@@ -79,13 +79,34 @@
 //         }
 //         return result; 
 //     };
-var reverseWords = function(s) {
-    let temp = s.replace(/\s+/g, " ").trim();
-    console.log("space removed: " + temp);
-    let tempString = temp.split(" ").reverse().join(" ");
-    console.log("tempString: " + tempString);
+// reverse string with extra spaces
+// var reverseWords = function(s) {
+//     let temp = s.replace(/\s+/g, " ").trim();
+//     console.log("space removed: " + temp);
+//     let tempString = temp.split(" ").reverse().join(" ");
+//     console.log("tempString: " + tempString);
 
-    return tempString;
+//     return tempString;
 
-};
-console.log("return: " + reverseWords("  hello world!  "));
+// };
+// console.log("return: " + reverseWords("  hello world!  "));
+function pickingNumbers(a) {
+    let sortArr = a.sort((a,b)=> b-a);
+    console.log("sorted arr: " + sortArr);
+    let max = 0;
+    let tempArr = [];
+    for(let i=0; i<sortArr.length-1; i++){
+        tempArr.push(sortArr[i]);
+        for(let j=i+1; j<sortArr.length; j++){
+            if( (Math.abs(sortArr[i]-sortArr[j])) <=1){
+                tempArr.push(sortArr[j]);
+                if(tempArr.length > max){
+                    max = tempArr.length;
+                }
+            }
+        }
+        tempArr = [];
+    }
+    return max;
+}
+console.log(pickingNumbers([4,6,5,3,3,1]));
