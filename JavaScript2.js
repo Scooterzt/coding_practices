@@ -90,23 +90,67 @@
 
 // };
 // console.log("return: " + reverseWords("  hello world!  "));
-function pickingNumbers(a) {
-    let sortArr = a.sort((a,b)=> b-a);
-    console.log("sorted arr: " + sortArr);
-    let max = 0;
-    let tempArr = [];
-    for(let i=0; i<sortArr.length-1; i++){
-        tempArr.push(sortArr[i]);
-        for(let j=i+1; j<sortArr.length; j++){
-            if( (Math.abs(sortArr[i]-sortArr[j])) <=1){
-                tempArr.push(sortArr[j]);
-                if(tempArr.length > max){
-                    max = tempArr.length;
+// function pickingNumbers(a) {
+//     let sortArr = a.sort((a,b)=> b-a);
+//     console.log("sorted arr: " + sortArr);
+//     let max = 0;
+//     let tempArr = [];
+//     for(let i=0; i<sortArr.length-1; i++){
+//         tempArr.push(sortArr[i]);
+//         for(let j=i+1; j<sortArr.length; j++){
+//             if( (Math.abs(sortArr[i]-sortArr[j])) <=1){
+//                 tempArr.push(sortArr[j]);
+//                 if(tempArr.length > max){
+//                     max = tempArr.length;
+//                 }
+//             }
+//         }
+//         tempArr = [];
+//     }
+//     return max;
+// }
+// console.log(pickingNumbers([4,6,5,3,3,1]));
+
+// let coins = [2];
+// let am = 23;
+// function coinsQueston1(coinArr, amount){
+//     let sortedCoins = coinArr.sort((a,b)=> b-a);
+//     let cointCount = 0; coins = 0;
+//     for(let i=0; i<sortedCoins.length; i++){
+//         if(Math.floor(amount/sortedCoins[i]) >=1 && amount > 0){
+//             coins += Math.floor(amount/sortedCoins[i]);
+//             if(coins > 1){
+//                 amount -= sortedCoins[i]*coins;
+//                 cointCount += coins;
+//             }
+//             else{
+//                 amount -= sortedCoins[i];
+//                 cointCount++;
+//             }
+//             coins = 0;
+//         }
+//     }
+//     if(amount !== 0){
+//         return -1;
+//     }
+//     return cointCount;
+// }
+// console.log("coins needet: " + coinsQueston1(coins, am));
+
+function abcQuestion3 (arrInt){
+    let newSet = new Set();
+    let arr = arrInt.sort();
+    for(let i=0; i<arr.length-2;i++){
+        if(i === 0 || (i>0 && arr[i] !== arr[i-1])){
+        for(let j=i+1; j<arr.length-1; j++){
+            for(let x = j+1; x<arr.length; x++){
+                if(arr[i]+arr[j]+arr[x] === 0){
+                    newSet.add([arr[i],arr[j],arr[x]].sort());
                 }
             }
         }
-        tempArr = [];
     }
-    return max;
 }
-console.log(pickingNumbers([4,6,5,3,3,1]));
+    return newSet;
+}
+console.log(abcQuestion3([-1,0,1,2,-1,-4]));
