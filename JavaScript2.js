@@ -137,20 +137,64 @@
 // }
 // console.log("coins needet: " + coinsQueston1(coins, am));
 
-function abcQuestion3 (arrInt){
-    let newSet = new Set();
-    let arr = arrInt.sort();
-    for(let i=0; i<arr.length-2;i++){
-        if(i === 0 || (i>0 && arr[i] !== arr[i-1])){
-        for(let j=i+1; j<arr.length-1; j++){
-            for(let x = j+1; x<arr.length; x++){
-                if(arr[i]+arr[j]+arr[x] === 0){
-                    newSet.add([arr[i],arr[j],arr[x]].sort());
-                }
+// function abcQuestion3 (arrInt){
+//     let newSet = new Set();
+//     let arr = arrInt.sort();
+//     for(let i=0; i<arr.length-2;i++){
+//         if(i === 0 || (i>0 && arr[i] !== arr[i-1])){
+//         for(let j=i+1; j<arr.length-1; j++){
+//             for(let x = j+1; x<arr.length; x++){
+//                 if(arr[i]+arr[j]+arr[x] === 0){
+//                     newSet.add([arr[i],arr[j],arr[x]].sort());
+//                 }
+//             }
+//         }
+//     }
+// }
+//     return newSet;
+// }
+// console.log(abcQuestion3([-1,0,1,2,-1,-4]));
+
+// function findTwoSum(arrInt, sum){
+//     let result = [];
+//     for(let i=0; i<arrInt.length-1; i++){
+//         for(let j=i+1; j<arrInt.length;j++){
+//             if((arrInt[i] + arrInt[j]) === sum){
+//                 result.push(i);
+//                 result.push(j);
+//             }
+//         }
+//     }
+//     return result;
+// }
+// console.log(findTwoSum([2,5,3,6,12], 15));
+
+// function isPolindrome(str){
+//     str = str.toLowerCase();
+//     for(let i=0; i< str.length/2; i++){
+//         if(str[i] != str[str.length-1-i]){
+//             return false;
+//         }
+//     }
+//     return true;
+// }
+
+function maximumConsecitive(str){
+    let count = 0;
+    let result = str[0];
+    for(let i=0; i<str.length; i++){
+        let curr_count = 1;
+        for(let j=i+1; j<str.length; j++){
+            if(str[i] != str[j]){
+                break;
             }
+            curr_count++;
+        }
+        if(curr_count > count){
+            count = curr_count;
+            result = str[i];
         }
     }
+    return result;
 }
-    return newSet;
-}
-console.log(abcQuestion3([-1,0,1,2,-1,-4]));
+console.log(maximumConsecitive("aaaaaabbbbbbbdbdbsbdsbrrrrrrrrrrrrrrriijijii"));
