@@ -179,22 +179,110 @@
 //     return true;
 // }
 
-function maximumConsecitive(str){
-    let count = 0;
-    let result = str[0];
-    for(let i=0; i<str.length; i++){
-        let curr_count = 1;
-        for(let j=i+1; j<str.length; j++){
-            if(str[i] != str[j]){
-                break;
-            }
-            curr_count++;
-        }
-        if(curr_count > count){
-            count = curr_count;
-            result = str[i];
-        }
+// 
+
+// function permutationOfAString(str){
+//     let resultArr = [];
+//     if (str.length == 1) return [str];
+//     if (str.length == 2) return [str, str[1] + str[0]];
+//     for(let i=0; i<str.length; i++){
+//         let oneChar = str[i];
+//         if(str.indexOf(oneChar) !== i) continue;
+//         var remainStr = str.slice(0, i) + str.slice(i+1, str.length);
+//         for(let subPerm of permutationOfAString(remainStr)){
+//             resultArr.push(oneChar+subPerm);
+//         }
+//     }
+//     return resultArr;
+// }
+// console.log(permutationOfAString("abcd"));
+// function segregate0s (arr){
+//     let resultArr = [];
+//     for(let i=0;i<arr.length; i++){
+//         if(arr[i] === 0){
+//             resultArr.unshift(arr[i]);
+//         }
+//         else{
+//             resultArr.push(arr[i]);
+//         }
+//     }
+//     return resultArr;
+// }
+// console.log(segregate0s([0,0,1,1,0,1,0,1,0,1,1,1,1,]));
+
+// function findApair(arr, n){
+//     let resultArr = [];
+//     arr = arr.sort((a,b) => b-a);
+//     console.log(arr);
+//     for(let i=0; i<arr.length-1; i++){
+//         for(let j=i+1; j<arr.length; j++){
+//             if(arr[i] - arr[j] === n){
+//                 resultArr.push(arr[i]);
+//                 resultArr.push(arr[j]);
+//             }
+//         }
+//     }
+//     return resultArr;
+// }
+// console.log(findApair([9,29,10,2,50,24,100],50));
+
+// function maximumConsecitive(str){
+//     let result = "";
+//     let max = 0;
+//     let count = 1;
+//     for(let i=0; i<str.length; i++){
+//         if(str[i] === str[i+1]){
+//             count++;
+//         }
+//         else{
+//             if(count>max){
+//                 max = count;
+//                 result = str[i];
+//             }
+//             count = 1;
+//         }
+//     }
+//     return result;
+// }
+// console.log(maximumConsecitive("aabbbxxxxssss"));
+
+// function plusMinus(arr) {
+//     let negative = 0;
+//     let zero = 0;
+//     let positive = 0;
+//     for(let i=0; i<arr.length; i++){
+//         if(arr[i] > 0){
+//             positive++;
+//         }
+//         else if(arr[i] < 0){
+//             negative++;
+//         }
+//         else{
+//             zero++;
+//         }
+//     }
+//     console.log((positive/arr.length).toFixed(6));
+//     console.log((negative/arr.length).toFixed(6));
+//     console.log((zero/arr.length).toFixed(6));
+//     }
+    
+// console.log(plusMinus([-1,0,1,1,1,-1]));
+
+// function staircase(n) {
+//     for(let i=1; i<n; i++){
+//         console.log("#".repeat(i).padStart(n));
+//     }
+// }
+// console.log(staircase(6));
+
+function miniMaxSum(arr) {
+    const sortUp = arr.sort();
+    let resultSmall = 0;
+    let resultBig = 0;
+    for(let i=0, j=arr.length-4; j<arr.length, i<4; i++,j++){
+        resultSmall += sortUp[i];
+        resultBig += sortUp[j];
     }
-    return result;
-}
-console.log(maximumConsecitive("aaaaaabbbbbbbdbdbsbdsbrrrrrrrrrrrrrrriijijii"));
+    console.log(resultSmall, resultBig);
+    }
+console.log(miniMaxSum([1,2,4,3,5]));
